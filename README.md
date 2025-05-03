@@ -15,3 +15,4 @@ CharacterInput.gd, inheriting from BaseNetInput, is where the issue is arising.
 
 No matter what lag i put the system under through my network limiter Clumsy.exe, CharacterInput.gd never has RollbackSynchronizer.is_predicting() EVER return true. I have never successfully had is_predicting() return true once in my entire time (5 days) using netfox, and I do not know what to do.
 
+To run a server, two debug instances must be ran, but one of them must have the launch argument of --Server (capitalization matters)
