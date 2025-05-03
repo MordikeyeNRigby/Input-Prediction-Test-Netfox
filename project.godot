@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="FishGameInputPrediction"
+run/main_scene="uid://u8ydmp4p6jr6"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+WindowTiler="*res://addons/netfox.extras/window-tiler.gd"
+NetworkTime="*res://addons/netfox/network-time.gd"
+NetworkTimeSynchronizer="*res://addons/netfox/network-time-synchronizer.gd"
+NetworkRollback="*res://addons/netfox/rollback/network-rollback.gd"
+NetworkEvents="*res://addons/netfox/network-events.gd"
+NetworkPerformance="*res://addons/netfox/network-performance.gd"
+LaunchArgs="*res://Scripts/LaunchArgs.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/netfox.extras/plugin.cfg", "res://addons/netfox.internals/plugin.cfg", "res://addons/netfox/plugin.cfg")
+
+[input]
+
+LClick={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(535, 25),"global_position":Vector2(544, 73),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+RClick={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(180, 15),"global_position":Vector2(189, 63),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

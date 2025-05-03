@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp505wgfkl0m6"]
+
+[ext_resource type="Script" uid="uid://bcaoirinmvta2" path="res://Scripts/Shrimp.gd" id="1_44cfe"]
+[ext_resource type="Script" uid="uid://d350u8evihs1u" path="res://addons/netfox/rollback/rollback-synchronizer.gd" id="1_ij6vw"]
+[ext_resource type="Script" uid="uid://d27usk8ft0e4r" path="res://Scripts/Input.gd" id="2_ghijl"]
+[ext_resource type="Script" uid="uid://dour8fehaaugp" path="res://addons/netfox/tick-interpolator.gd" id="4_dd465"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_186t8"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("input", "synchronizer")]
+position = Vector2(603, 305)
+script = ExtResource("1_44cfe")
+innerControlRad = 10.0
+outerControlRad = 200.0
+maxSpeed = 200.0
+input = NodePath("CharacterInput")
+synchronizer = NodePath("RollbackSynchronizer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_186t8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RollbackSynchronizer" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("1_ij6vw")
+root = NodePath("..")
+enable_prediction = true
+state_properties = Array[String]([":global_transform", ":velocity"])
+input_properties = Array[String](["CharacterInput:mousePos", "CharacterInput:mouseState"])
+enable_input_broadcast = false
+metadata/_custom_type_script = ExtResource("1_ij6vw")
+
+[node name="CharacterInput" type="Node" parent="."]
+script = ExtResource("2_ghijl")
+metadata/_custom_type_script = ExtResource("2_ghijl")
+
+[node name="TickInterpolator" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("4_dd465")
+root = NodePath("..")
+properties = Array[String]([":global_transform"])
+metadata/_custom_type_script = ExtResource("4_dd465")
