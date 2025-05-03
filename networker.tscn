@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://pce4sfnk6mb"]
+
+[ext_resource type="Script" uid="uid://ccae64txs71y6" path="res://Scripts/network.gd" id="1_3nqnr"]
+
+[node name="Networker" type="Node"]
+script = ExtResource("1_3nqnr")
+
+[node name="ClientSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("../Clients")
+
+[node name="Clients" type="Node" parent="."]

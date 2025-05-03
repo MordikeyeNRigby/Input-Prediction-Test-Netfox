@@ -9,7 +9,7 @@ signal ConnectedToServer()
 signal NewPeer(id: int)
 signal PeerDisconnect(id: int)
 
-signal ClientSpawn(c: Client)
+signal ClientSpawn(id: int)
 
 static var clients: Dictionary[int,Client] = {}
 @onready var clientSpawner: MultiplayerSpawner = $ClientSpawner

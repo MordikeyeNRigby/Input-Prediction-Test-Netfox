@@ -1,19 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://u8ydmp4p6jr6"]
 
 [ext_resource type="Script" uid="uid://be5gqbu508870" path="res://Scripts/main.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://ccae64txs71y6" path="res://Scripts/network.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://pce4sfnk6mb" path="res://networker.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b40nyinkncyft" path="res://game.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
 
-[node name="Networker" type="Node" parent="."]
-script = ExtResource("2_0xm2m")
-
-[node name="ClientSpawner" type="MultiplayerSpawner" parent="Networker"]
-spawn_path = NodePath("../Clients")
-
-[node name="Clients" type="Node" parent="Networker"]
+[node name="Networker" parent="." instance=ExtResource("2_h2yge")]
 
 [node name="Game" parent="." instance=ExtResource("3_h2yge")]
 

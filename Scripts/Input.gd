@@ -35,12 +35,12 @@ func get_mouse_world_position() -> Vector2:
 #INPUT PREDICTION stupidly important to handling dropped frames.
 func _predict(tick: int):
 	if !synchronizer.is_predicting():#if ur not predicting dont predict it xD
-		return
+		return#THIS IS ALWAYS RETURNING TRUE
 	if !synchronizer.has_input(): #cant trust a thing without input recieved.
 		mousePos = character.global_position
 		return
 	var current: Vector2 = mousePos - character.global_position
 	var length: float = current.length()
-	mousePos = current.normalized() * length * 0.95 + character.global_position
+	mousePos = current.normalized() * length * 0.95 + character.global_position#reduce how far away the character is from the mouse by 5% each predicted frame.
 	print("PREDICTED FOR %S\n mousePos: %s" % [character.id,mousePos])
 	
