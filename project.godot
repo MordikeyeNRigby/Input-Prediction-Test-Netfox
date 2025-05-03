@@ -42,6 +42,11 @@ RClick={
 ]
 }
 
+[netfox]
+
+general/clear_settings=false
+rollback/input_delay=4
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

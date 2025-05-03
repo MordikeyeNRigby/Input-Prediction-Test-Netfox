@@ -37,16 +37,16 @@ script = ExtResource("1_ij6vw")
 root = NodePath("..")
 enable_prediction = true
 state_properties = Array[String]([":global_transform", ":velocity"])
-input_properties = Array[String](["CharacterInput:mousePos", "CharacterInput:mouseState"])
+input_properties = Array[String](["CharacterInput:mousePos"])
 enable_input_broadcast = false
-metadata/_custom_type_script = ExtResource("1_ij6vw")
+metadata/_custom_type_script = "uid://d350u8evihs1u"
 
 [node name="CharacterInput" type="Node" parent="."]
 script = ExtResource("2_ghijl")
-metadata/_custom_type_script = ExtResource("2_ghijl")
+metadata/_custom_type_script = "uid://d27usk8ft0e4r"
 
 [node name="TickInterpolator" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("4_dd465")
 root = NodePath("..")
 properties = Array[String]([":global_transform"])
-metadata/_custom_type_script = ExtResource("4_dd465")
+metadata/_custom_type_script = "uid://dour8fehaaugp"
